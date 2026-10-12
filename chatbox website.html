@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat UI</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#eef5fd] h-screen font-sans flex text-slate-700 antialiased overflow-hidden">
+
+  <!-- 1. LEFT NARROW NAVIGATION BAR -->
+  <aside class="w-20 bg-white border-r border-slate-100 flex flex-col items-center justify-between py-6 z-10 shrink-0">
+    <div class="flex flex-col items-center gap-8">
+      <!-- App Logo -->
+      <a href="#" class="text-3xl text-sky-500 hover:scale-105 transition"><i class="fa-solid fa-cloud-bolt"></i></a>
+      <!-- Active User Profile Avatar -->
+      <div class="relative">
+        <img class="w-12 h-12 rounded-full object-cover ring-2 ring-sky-100 shadow-sm" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="User Avatar">
+      </div>
+    </div>
+    <!-- Bottom Navigation Icons -->
+    <div class="flex flex-col gap-4">
+      <button class="w-11 h-11 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center transition"><i class="fa-regular fa-moon"></i></button>
+      <button class="w-11 h-11 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center transition"><i class="fa-solid fa-power-off"></i></button>
+    </div>
+  </aside>
+
+  <!-- 2. MIDDLE CHAT & CONTACTS PANEL -->
+  <aside class="w-96 bg-white border-r border-slate-100 flex flex-col justify-between p-6 shrink-0 overflow-y-auto">
+    <div>
+      <!-- Recent Section Header -->
+      <div class="flex justify-between items-center mb-3">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">Recent</h2>
+          <p class="text-xs text-slate-400 font-medium">Chat from your friends 😘</p>
+        </div>
+        <button class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-border-all"></i></button>
+      </div>
+
+      <!-- Recent Friends Story Cards -->
+      <div class="grid grid-cols-2 gap-3 mb-8">
+        <!-- Card 1 (Jpny) -->
+        <div class="relative h-28 rounded-2xl overflow-hidden shadow-sm group cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="Jpny">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end justify-between p-2.5">
+            <span class="text-white text-xs font-semibold">Jpny</span>
+            <span class="w-2 h-2 rounded-full bg-amber-400 border border-black/40"></span>
+          </div>
+        </div>
+        <!-- Card 2 (John Deo) -->
+        <div class="relative h-28 rounded-2xl overflow-hidden shadow-sm group cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="John Deo">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end justify-between p-2.5">
+            <span class="text-white text-xs font-semibold">John Deo</span>
+            <span class="w-2 h-2 rounded-full bg-red-500 border border-black/40"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Search Header -->
+      <div class="flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">Chat</h2>
+          <p class="text-xs text-slate-400 font-medium">Start New Conversation</p>
+        </div>
+        <button class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="flex bg-slate-100 p-1 rounded-2xl gap-1 mb-6 text-xs font-semibold">
+        <button class="flex-1 py-2.5 bg-sky-400 text-white rounded-xl shadow-sm text-center">Chat</button>
+        <button class="flex-1 py-2.5 text-slate-500 hover:text-slate-800 text-center">Call</button>
+        <button class="flex-1 py-2.5 text-slate-500 hover:text-slate-800 text-center">Contact</button>
+      </div>
+
+      <!-- Active Chat List Item -->
+      <div class="flex items-center gap-3 p-3 bg-sky-50/50 rounded-2xl border border-sky-100 cursor-pointer">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=150&q=80" class="w-12 h-12 rounded-xl object-cover" alt="Josephin water">
+          <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-slate-300 border-2 border-white rounded-full"></span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h4 class="font-bold text-sm text-slate-800 truncate">Josephin water</h4>
+          <p class="text-xs text-slate-400 truncate">Hi, i am josephin. How are you...</p>
+        </div>
+        <div class="text-right shrink-0">
+          <span class="text-[10px] text-slate-400 block mb-1">22/10/23</span>
+          <span class="text-[11px] text-green-500 font-semibold">Seen</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Action Button at Bottom -->
+    <button class="w-12 h-12 bg-sky-400 hover:bg-sky-500 text-white rounded-full flex items-center justify-center text-lg shadow-md transition self-start mt-6"><i class="fa-solid fa-plus"></i></button>
+  </aside>
+
+  <!-- 3. MAIN CHAT AREA -->
+  <main class="flex-1 flex flex-col justify-between p-8 relative overflow-hidden">
+    
+    <!-- Top Header Bar -->
+    <header class="bg-white rounded-3xl p-4 flex items-center justify-between shadow-sm border border-slate-100 max-w-4xl mx-auto w-full">
+      <div class="flex items-center gap-3">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" class="w-12 h-12 rounded-2xl object-cover" alt="Josephin water">
+          <span class="absolute top-1 right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></span>
+        </div>
+        <div>
+          <h3 class="font-bold text-slate-800 text-sm">Josephin water</h3>
+          <span class="inline-block bg-emerald-500 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Active</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 pr-4 border-r border-slate-200">
+          <button class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-xs"><i class="fa-solid fa-volume-high"></i></button>
+          <button class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-xs"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="flex items-center gap-2 pl-2">
+          <button class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-xs"><i class="fa-solid fa-phone"></i></button>
+          <button class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-xs"><i class="fa-solid fa-video"></i></button>
+          <button class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-xs"><i class="fa-solid fa-border-all"></i></button>
+          <button class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-xs"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Chat Messages Stream -->
+    <div class="flex-1 overflow-y-auto max-w-4xl mx-auto w-full my-6 pr-2 space-y-4 flex flex-col justify-end">
+      
+      <!-- Right Message Group (Alan) -->
+      <div class="flex flex-col items-end gap-1.5">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-[11px] font-semibold text-slate-800">Alan josheph</span>
+          <span class="text-[10px] text-slate-400">01:40 AM</span>
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" class="w-8 h-8 rounded-full object-cover ml-1" alt="Alan">
+        </div>
+        <div class="bg-white text-slate-800 text-xs font-medium px-4 py-3 rounded-2xl rounded-tr-none shadow-sm max-w-xs border border-slate-100">
+          Hi I am Alan,
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="bg-emerald-500 text-white text-[9px] font-bold w-4 h-4 rounded flex items-center justify-center">R</span>
+          <div class="bg-slate-200/80 text-slate-800 text-xs font-semibold px-4 py-3 rounded-2xl shadow-sm max-w-xs">
+            your personal assistant to help you
+          </div>
+        </div>
+      </div>
+
+      <!-- Left Message Group (Josephin) -->
+      <div class="flex items-start gap-3 mt-4">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=100&q=80" class="w-9 h-9 rounded-full object-cover mt-1" alt="Josephin">
+        <div class="flex flex-col items-start gap-1.5">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-[11px] font-semibold text-slate-800">Josephin water</span>
+            <span class="text-[10px] text-slate-400">01:35 AM</span>
+          </div>
+          <div class="bg-sky-500 text-white text-xs font-medium px-5 py-3 rounded-2xl rounded-tl-none shadow-sm max-w-md">
+            Hi I am Josephin, can you help me to find best chat app?.
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="bg-sky-500 text-white text-xs font-medium px-5 py-3 rounded-2xl shadow-sm max-w-md">
+              it should from elite auther
+            </div>
+            <span class="bg-emerald-500 text-white text-[9px] font-bold w-4 h-4 rounded flex items-center justify-center">R</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Input Bar -->
+    <footer class="max-w-4xl mx-auto w-full flex items-center gap-3">
+      <div class="flex items-center gap-2 bg-white/80 backdrop-blur rounded-full px-4 py-2 flex-1 shadow-sm border border-slate-100">
+        <button class="w-8 h-8 text-sky-400 hover:text-sky-500 flex items-center justify-center"><i class="fa-regular fa-image"></i></button>
+        <button class="w-8 h-8 text-sky-400 hover:text-sky-500 relative flex items-center justify-center">
+          <i class="fa-regular fa-face-smile"></i>
+          <span class="absolute top-1 right-1 w-2 h-2 bg-sky-400 rounded-full"></span>
+        </button>
+        <button class="w-8 h-8 bg-sky-100 text-sky-500 rounded-full flex items-center justify-center text-xs hover:bg-sky-200 transition"><i class="fa-solid fa-plus"></i></button>
+        
+        <input type="text" placeholder="Write your message..." class="bg-transparent flex-1 text-xs text-slate-700 outline-none px-2 placeholder-slate-400 font-medium">
+      </div>
+
+      <button class="w-11 h-11 bg-sky-100 text-sky-500 hover:bg-sky-200 rounded-full flex items-center justify-center text-sm transition"><i class="fa-solid fa-microphone"></i></button>
+      <button class="w-11 h-11 bg-sky-400 hover:bg-sky-500 text-white rounded-full flex items-center justify-center text-sm shadow-md transition"><i class="fa-solid fa-paper-plane"></i></button>
+    </footer>
+
+  </main>
+
+</body>
+</html>
